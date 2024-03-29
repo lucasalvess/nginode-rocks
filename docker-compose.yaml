@@ -5,7 +5,7 @@ services:
     container_name: node
     image: lucasalvess97/node-nginx
     build:
-      context: .
+      context: ./app
     networks:
       - node-network
     tty: true
@@ -23,8 +23,8 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./mysql:/var/lib/mysql
-      - ./init:/docker-entrypoint-initdb.d
+      - ./db/mysql:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
