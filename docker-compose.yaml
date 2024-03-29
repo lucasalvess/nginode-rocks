@@ -9,8 +9,6 @@ services:
     networks:
       - node-network
     tty: true
-    ports:
-      - 3000:3000
     depends_on: 
       db:
         condition: service_healthy
