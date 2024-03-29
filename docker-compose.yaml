@@ -34,6 +34,17 @@ services:
         test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
         timeout: 5s
         retries: 10
+    
+  nginx:
+    restart: always
+    build:
+        context: ./nginx
+    ports:
+      - "8080:80"
+    depends_on: 
+      - node
+    networks:
+      - node-network
 
 networks:
   node-network:
