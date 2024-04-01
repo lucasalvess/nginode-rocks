@@ -9,6 +9,8 @@ services:
     networks:
       - node-network
     tty: true
+    volumes:
+      - ./app/src:/usr/src/app/src
     depends_on: 
       db:
         condition: service_healthy
